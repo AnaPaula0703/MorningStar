@@ -85,6 +85,7 @@ main {
 
 .content {
     max-width: 600px;
+    margin-top: 150px;
 }
 
 .content h1 {
@@ -158,7 +159,7 @@ main {
     max-width: 1400px;
     margin: 0 auto;
     text-align: center;
-    overflow: hidden; /* Evita interferência do carrossel */
+    overflow: hidden;
 }
 
 .sobre-nos h2 {
@@ -203,17 +204,19 @@ main {
 
 /* Seção Destaques */
 .destaques {
-    padding: 50px 30px;
-    text-align: center;
+    padding: 40px 30px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    text-align: center;
+    overflow: hidden;
+    padding-top: 80px;
 }
 
 .destaques h2 {
-    font-size: 72px;
+    font-size: 50px;
     line-height: 1.2;
     margin-bottom: 20px;
     color: #ffffff;
@@ -224,8 +227,9 @@ main {
     display: flex;
     width: 600px;
     max-width: 90%;
-    margin: 0 auto 30px auto; /* Centraliza e adiciona espaço abaixo */
-    position: relative; /* Garante que a barra de pesquisa fique no fluxo correto */
+    margin: 0 auto 20px auto;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
 .search-bar input {
@@ -237,6 +241,7 @@ main {
     background-color: transparent;
     color: #ffffff;
     outline: none;
+    transition: border-color 0.3s ease;
 }
 
 .search-bar input::placeholder {
@@ -252,17 +257,31 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.3s ease;
 }
 
 .search-bar button i {
     font-size: 18px;
     color: #1a2a44;
+    transition: color 0.3s ease;
+}
+
+.search-bar:hover input {
+    border-color: var(--color-hover);
+}
+
+.search-bar:hover button {
+    background-color: var(--color-hover);
+}
+
+.search-bar:hover button i {
+    color: var(--color-hover-button);
 }
 
 .destaques h1 {
     font-size: 55px;
     line-height: 1.2;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     color: #ffffff;
     font-weight: bold;
 }
@@ -272,7 +291,8 @@ main {
     margin: 0 auto;
     border-radius: 15px;
     overflow: hidden;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    flex-grow: 0;
 }
 
 .video-item {
@@ -282,8 +302,8 @@ main {
 
 .video-item iframe {
     width: 100%;
-    max-width: 800px; /* Limita a largura dos vídeos */
-    height: 450px; /* Ajustado para proporção padrão do YouTube (16:9) */
+    max-width: 800px;
+    height: 450px;
     border: none;
     border-radius: 15px;
 }
@@ -322,8 +342,184 @@ main {
     font-size: 20px;
     border-radius: 25px;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .support-btn:hover {
     background-color: var(--color-hover-button);
+}
+
+/* Seção Registro de Suporte */
+.support-section {
+    padding: 40px 30px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.support-section h2 {
+    font-size: 50px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.support-form {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.support-form h1 {
+    font-size: 55px;
+    line-height: 1.2;
+    margin-bottom: 40px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.support-form textarea {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    padding: 15px;
+    font-size: 16px;
+    border: 2px solid #ffffff;
+    border-radius: 15px;
+    background-color: #ffffff;
+    color: #000000;
+    outline: none;
+    resize: none;
+}
+
+.support-form textarea::placeholder {
+    color: #d3d3d3;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.attach-btn {
+    background-color: var(--color-hover);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.attach-btn i {
+    font-size: 16px;
+}
+
+.attach-btn:hover {
+    background-color: var(--color-hover-button);
+}
+
+.previous-requests {
+    display: block;
+    margin-top: 20px;
+    font-size: 16px;
+    color: var(--color-hover);
+    text-decoration: none;
+}
+
+.previous-requests:hover {
+    color: var(--color-hover-button);
+}
+
+/* Seção Técnicos */
+.tecnicos {
+    padding: 40px 30px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.tecnicos h2 {
+    font-size: 50px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.request-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.request-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #ffffff;
+    border-radius: 15px;
+    padding: 25px;
+    max-width: 400px;
+    text-align: left;
+    color: #d3d3d3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.request-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-color: var(--color-hover);
+}
+
+.request-box h3 {
+    font-size: 24px;
+    color: var(--color-hover);
+    margin-bottom: 15px;
+}
+
+.request-box p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.request-box p strong {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.request-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.request-btn {
+    background-color: var(--color-hover);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.request-btn:hover {
+    background-color: var(--color-hover-button);
+    transform: scale(1.05);
 }
