@@ -20,7 +20,7 @@
     <header>
         <div class="logo">MorningStar</div>
         <nav>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="#">Central de Ajuda</a></li>
                 <li><a href="#">Novidades</a></li>
                 <li><a href="#">Comercial</a></li>
@@ -28,7 +28,6 @@
                 <li><a href="#">Parceiros</a></li>
                 <li><a href="#" class="login">Login</a></li>
                 <li><a href="#sobre-nos">Sobre</a></li>
-                <li><a href="#" class="menu-icon"><i class="fa-solid fa-bars fa-lg"></i></a></li>
             </ul>
         </nav>
     </header>
@@ -38,7 +37,7 @@
         <div class="content">
             <h1>Conecte-se ao futuro do suporte técnico</h1>
             <p>Serviço rápido, confiável e eficiente para sua empresa.</p>
-            <button>Cadastre-se agora</button>
+            <button aria-label="Cadastre-se agora para começar">Cadastre-se agora</button>
             <div class="contact">
                 <p><strong>Fale conosco:</strong></p>
                 <p>(41) 3456-7890</p>
@@ -46,11 +45,11 @@
                 <p>morningstar@gmail.com.br</p>
             </div>
             <div class="social-icons">
-                <a href="#" class="social-icon"><i class="fa-brands fa-linkedin fa-sm"></i></a>
-                <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter fa-sm"></i></a>
-                <a href="#" class="social-icon"><i class="fa-brands fa-instagram fa-sm"></i></a>
-                <a href="#" class="social-icon"><i class="fa-brands fa-facebook fa-sm"></i></a>
-                <a href="#" class="social-icon"><i class="fa-brands fa-github fa-sm"></i></a>
+                <a href="#" class="social-icon" aria-label="Visite nosso LinkedIn"><i class="fa-brands fa-linkedin fa-sm"></i></a>
+                <a href="#" class="social-icon" aria-label="Visite nosso Twitter"><i class="fa-brands fa-x-twitter fa-sm"></i></a>
+                <a href="#" class="social-icon" aria-label="Visite nosso Instagram"><i class="fa-brands fa-instagram fa-sm"></i></a>
+                <a href="#" class="social-icon" aria-label="Visite nosso Facebook"><i class="fa-brands fa-facebook fa-sm"></i></a>
+                <a href="#" class="social-icon" aria-label="Visite nosso GitHub"><i class="fa-brands fa-github fa-sm"></i></a>
             </div>
         </div>
     </main>
@@ -155,7 +154,7 @@
                     <span class="visually-hidden">Próximo</span>
                 </button>
             </div>
-            <button class="support-btn">Solicitar suporte</button>
+            <button class="support-btn" aria-label="Solicitar suporte técnico">Solicitar suporte</button>
         </div>
     </section>
 
@@ -171,7 +170,10 @@
                 <h1>Registro de Suporte</h1>
                 <textarea placeholder="descrição do problema..."></textarea>
                 <div class="form-actions">
-                    <button class="attach-btn"><i class="fas fa-paperclip"></i> Anexar arquivos</button>
+                    <input type="file" id="file-input" multiple style="display: none;">
+                    <button class="attach-btn" onclick="document.getElementById('file-input').click();" aria-label="Anexar arquivos ao suporte">
+                        <i class="fas fa-paperclip"></i> Anexar arquivos
+                    </button>
                 </div>
                 <a href="#" class="previous-requests">Solicitações anteriores</a>
             </div>
@@ -211,12 +213,43 @@
         </div>
     </section>
 
+    <!--66 Seção Detalhes da Solicitação -->
+    <section class="solicitacao-detalhes">
+        <div class="container">
+            <div class="solicitacao-box">
+                <div class="solicitacao-header">
+                    <i class="fas fa-check-circle"></i>
+                    <h1>Solicitação nº23</h1>
+                </div>
+                <div class="solicitacao-info">
+                    <p><strong>Cliente:</strong> Adriano Mattheus da Silva</p>
+                    <p><strong>Data de Solicitação:</strong> 23/12/2024</p>
+                </div>
+                <div class="solicitacao-descricao">
+                    <p>Olá, preciso de ajuda para criar uma aplicação web simples que me ajude a gerenciar minhas tarefas diárias. A ideia é que eu possa cadastrar, editar e excluir tarefas, e marcar elas como concluídas. Gostaria que a interface fosse bem simples e intuitiva, utilizando HTML, CSS e JavaScript para o front-end. No back-end, prefiro que usasse Node.js com banco de dados MySQL para armazenar as informações. Eu preciso que o trabalho seja entregue em até 10 dias, o orçamento disponível é de R$500,00. Alguém gostaria de ter um acompanhamento semanal para verificar o andamento do projeto.</p>
+                </div>
+                <div class="solicitacao-arquivos">
+                    <button class="ver-arquivos-btn"><i class="fas fa-file"></i> Ver arquivos</button>
+                </div>
+            </div>
+            <div class="status-box">
+                <h3>Atualização de status:</h3>
+                <select class="status-select">
+                    <option value="em-analise" selected>Em análise</option>
+                    <option value="em-andamento">Em andamento</option>
+                    <option value="resolvido">Resolvido</option>
+                </select>
+                <button class="atualizar-status-btn">Atualizar Status</button>
+            </div>
+        </div>
+    </section>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <!-- Script para o carrossel passar com mouseover -->
+    <!-- Script para o carrossel -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const carousel = document.querySelector('#carouselExample');
@@ -238,16 +271,13 @@
                 }
             });
 
-            nextBtn.addEventListener('mouseout', () => {
-                isHovering = false;
-            });
+            nextBtn.addEventListener('mouseout', () => isHovering = false);
+            prevBtn.addEventListener('mouseout', () => isHovering = false);
 
-            prevBtn.addEventListener('mouseout', () => {
-                isHovering = false;
-            });
+            const carouselInstance = bootstrap.Carousel.getInstance(carousel);
+            carouselInstance.cycle(); // Inicia o ciclo automático
         });
     </script>
-
 </body>
 
 </html>

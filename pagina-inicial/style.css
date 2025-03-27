@@ -41,7 +41,7 @@ header .logo {
     color: #ffffff;
 }
 
-header nav ul {
+header nav ul.nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
@@ -54,22 +54,6 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-    color: var(--color-hover);
-}
-
-.menu-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-}
-
-.menu-icon i {
-    font-size: 20px;
-    color: #fff;
-}
-
-.menu-icon:hover i {
     color: var(--color-hover);
 }
 
@@ -522,4 +506,149 @@ main {
 .request-btn:hover {
     background-color: var(--color-hover-button);
     transform: scale(1.05);
+}
+
+/* Seção Detalhes da Solicitação */
+.solicitacao-detalhes {
+    padding: 40px 30px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.solicitacao-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 800px;
+    text-align: left;
+    color: #d3d3d3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.3s ease;
+}
+
+.solicitacao-box:hover {
+    border-color: var(--color-hover);
+}
+
+.solicitacao-header {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o ícone e o h1 horizontalmente */
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.solicitacao-header i {
+    font-size: 24px;
+    color: var(--color-hover);
+}
+
+.solicitacao-header h1 {
+    font-size: 32px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.solicitacao-info p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.solicitacao-info p strong {
+    color: #ffffff;
+}
+
+.solicitacao-descricao {
+    margin: 20px 0;
+}
+
+.solicitacao-descricao p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #d3d3d3;
+}
+
+.solicitacao-arquivos {
+    text-align: right;
+}
+
+.ver-arquivos-btn {
+    background-color: transparent;
+    color: var(--color-hover);
+    border: 2px solid var(--color-hover);
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.ver-arquivos-btn i {
+    font-size: 16px;
+}
+
+.ver-arquivos-btn:hover {
+    background-color: var(--color-hover);
+    color: #ffffff;
+}
+
+.status-box {
+    margin-top: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.status-box h3 {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.status-box .status-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px; /* Espaçamento entre o dropdown e o botão */
+}
+
+.status-box .status-select {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ffffff;
+    border-radius: 25px;
+    background-color: transparent;
+    color: #ffffff;
+    outline: none;
+}
+
+.status-box .status-select option {
+    background-color: var(--background-color-body);
+    color: #ffffff;
+}
+
+.status-box .atualizar-status-btn {
+    background-color: var(--color-hover);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.status-box .atualizar-status-btn:hover {
+    background-color: var(--color-hover-button);
 }
